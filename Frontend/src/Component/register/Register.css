@@ -1,0 +1,54 @@
+#fname {
+    margin-left: 30px;
+    margin-top: 12px;
+    width: 170px;
+    height: 25px;
+    border-radius: 5px;
+    border-color: black;
+  }
+  #email {
+    margin-left: 60px;
+    margin-top: 20px;
+    width: 170px;
+    height: 25px;
+    border-radius: 5px;
+    border-color: black;
+  }
+  #pwd {
+    margin-left: 30px;
+    margin-top: 8px;
+    width: 170px;
+    height: 25px;
+    border-radius: 5px;
+    border-color: black;
+  }
+  #pwd1 {
+    margin-right: 30px;
+    margin-top: 10px;
+    width: 170px;
+    height: 25px;
+    border-radius: 5px;
+    border-color: black;
+  }
+  
+  #btn {
+    margin-left: 90px;
+    margin-top: 40px;
+    width: 130px;
+    height: 30px;
+    border-radius: 7px;
+    border-color: black;
+    font-size: 13px;
+    background-color: #5debeb;
+  }
+  .head{
+    margin-top: 170px;
+    margin-left:80px ;
+    font-size: 25px;
+  }
+
+  .label
+  {
+    margin-right: 10px;
+  }
+  

@@ -1,0 +1,32 @@
+.gbtn
+{
+  background-color: brown!important;
+}
+.button-cyan
+{
+  background-color: rgba(0, 255, 255, 0.353)!important;
+}
+.bg-silver
+{
+  background-color: rgb(179, 179, 179);
+}
+.cursor-point
+{
+  cursor: pointer!important;
+}
+.h-over
+{
+background-color: rgb(179, 179, 179);
+}
+.h-over:hover
+{
+  background-color: white;
+}
+.w-33
+{
+  width: 33%;
+}
+.w-10
+{
+  width:10%;
+}

@@ -1,0 +1,49 @@
+
+    .popup
+    {
+      position: fixed;
+      
+      /* background-color: #0009; */
+      
+      z-index: 1000;
+   
+      margin: 0 auto;
+      height: 100%;
+      width: 100%;
+      top:0;
+      display: none;
+      
+    }
+    .flexData
+    {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+    }
+    .popupInner
+    {
+      background-color: rgb(230, 227, 227);
+      width: 400px;
+     border:1px solid black;
+    }
+    .hedding
+    {
+      padding: 10px 0;
+      text-align: center;
+      border-bottom: 2px solid black;
+
+    }
+    .btn-g
+    {
+      padding: 10px;
+    }
+    .popbody
+    {
+      padding: 20px;;
+    }
+    .btn-g button
+    {
+      margin-left: 10px;;
+    }

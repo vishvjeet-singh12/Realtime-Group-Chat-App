@@ -1,0 +1,36 @@
+.chat3{
+    margin-top:150px;
+}
+.chats{
+    padding-left: 40px;
+}
+.chatting{
+    width:70%;
+     height: 25px;
+    margin-left: 10px;
+}
+.styling{
+    margin-left:  20px;
+     border-radius:  7px;
+     background-color:  white; 
+     height:  30px;
+}
+.chat-style{
+    margin-left:  10px; border-radius:  7px;
+     background-color:white; 
+     height:  30px;
+}
+.Chat-header{
+    padding-left:50%;
+    font-size:20px;
+}
+.Chat-button{
+    width: 25px;
+     height:30px; 
+     margin-left: 620px;
+     margin-bottom:20px;
+}
+.Chat-Awesome{
+    font-size: 20px;
+    margin-top: -5px;
+}
