@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 const bcrypt = require('bcrypt');
 const { MongoClient, ObjectId } = require('mongodb'); // include mongodb library 
-const url = 'mongodb+srv://vishvjeetsingh422:vish123@cluster0.vnhldaf.mongodb.net/userDataBase?retryWrites=true&w=majority'; // Connection URL
+const url = process.env.MONGODB_URI; // Connection URL
 const client = new MongoClient(url);
 const jwt = require('jsonwebtoken');
 const multer = require('multer')
