@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate, Link, useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css"
+import { toast } from "sonner";
 export const Topnav = (props) => {
   const { email } = useParams()
   const navigate = useNavigate()
@@ -18,17 +19,16 @@ export const Topnav = (props) => {
       console.log(result.messege)
 
       if (res.status === 200) {
-        window.alert("logout successfull")
-
+        toast.success("Successfully Logout")
         navigate('/1')
 
       }
       else {
-        window.alert(result.messege)
+        toast.error(result.message || "Logout failed!");
       }
     }).catch((error) => {
       console.log(error)
-      window.alert(error)
+      toast.error("An error occurred while logging out!");
     });
   }
   var user = "/manageDocument/"

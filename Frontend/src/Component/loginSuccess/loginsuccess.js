@@ -52,10 +52,11 @@ export const Loginsuccess = () => {
     let Logged = () => {
         return <div>
             <Topnav email={email} />
-            <div>
+            <div style={{backgroundColor:"lightgreen",padding:'20px'}}>
                 <center>
-                    <label for=""> <h2 style={{ "margin-top": "20px ;" }}>Login Successful</h2></label><br />
+                    <label for=""> <h2 style={{ "margin-top": "20px ;" }}>Login Successfully</h2></label><br />
                     <label for="" ><p style={{ "margin-top": "50px ;" }}><b>Welcome ! </b>{email}</p></label>
+                    <h6 style={{fontSize:'20px',marginTop:'10px'}}>Click on the Group Chat to see the chats</h6>
                 </center>
             </div>
 

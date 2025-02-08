@@ -10,10 +10,13 @@ const jwt = require('jsonwebtoken');
 const multer = require('multer')
 const fs = require('fs')
 const app = express()
+const path=require("path");
+
+const _dirname=path.resolve();
 
 var cookieParser = require('cookie-parser');
 // --------------------------------------------------------
-app.use(cors())//cross origin resource sharing
+app.use(cors())//cross origin resource sharing    
 app.use(express.json())
 app.use(cookieParser());// use for cookie
 client.connect(); // Use connect method to connect to the server
@@ -264,6 +267,11 @@ app.get('/ChatList', Authenticate, (req, res) => {
     res.status(200).json(result);
   });
 });
+
+app.use(express.static(path.join(_dirname,"/Frontend/dist")));
+app.get("*",(req,res)=>{
+    res.sendFile(path.resolve(_dirname,"Frontend","dist","index.html"))
+})
 
 app.listen(process.env.PORT, () => {
   console.log(`listing the port at ${process.env.PORT}`);

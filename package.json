@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start":"nodemon Express/index.js",
+    "build":"npm install && npm install --prefix Frontend && npm run build --prefix Frontend",
+    "dev":"nodemon Express/index.js"
   },
   "author": "ankush",
   "license": "ISC",

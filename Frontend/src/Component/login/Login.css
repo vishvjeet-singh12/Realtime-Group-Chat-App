@@ -1,8 +1,21 @@
-.Login-margin-left
-{
-  margin-left:40px;
+.content{
+  background-color: rgba(255, 255, 255);
+  border-radius: 10px;
+  padding:30px 30px 30px 30px !important;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  animation: pulse 1.5s ease-in-out infinite alternate;
 }
-.Login-margin-left-more
-{
-  margin-left:69px;
+input[type=email], input[type=password] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: rgb(227, 230, 233);
+	font-family: Montserrat,Arial, Helvetica, sans-serif;
+}
+label{
+    color: black;
+    font-weight: bold;
 }
