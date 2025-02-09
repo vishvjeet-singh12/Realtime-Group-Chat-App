@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import './chatmgmt.css'
+import { toast } from 'sonner'
 import { Topnav } from '../topNav/Topnav'
 export const Chatmgmt = (props) => {
-    console.log(props)
     const [login, setlogin] = useState(0)
     const [messege, setmessege] = useState("")
     const [email, setemail] = useState("")
     const sendMessege = async (e) => {
-        console.log(messege)
         const date = new Date();
         let date_value = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
         let hour, minutes, second
@@ -23,7 +22,7 @@ export const Chatmgmt = (props) => {
 
         String(date.getMinutes()).length == 2 ? minutes = date.getMinutes() : minutes = "0" + date.getMinutes()
         String(date.getSeconds()).length == 2 ? second = date.getSeconds() : second = "0" + date.getSeconds()
-        console.log(date.getSeconds().length)
+        // console.log(date.getSeconds().length)
         let time = hour + ':' + minutes + ':' + second;
 
         let final_date = date_value + " " + time
@@ -42,7 +41,7 @@ export const Chatmgmt = (props) => {
             })
 
             const data = res.json({}).then((result) => {
-                console.log(result)
+               
 
                 if (res.status === 200) {
                     props.fun()
@@ -59,8 +58,8 @@ export const Chatmgmt = (props) => {
                     console.log(result)
                 }
             }).catch((error) => {
-                console.log(error)
-                window.alert(error)
+               
+                toast.error(error)
             });
 
         }
@@ -70,7 +69,6 @@ export const Chatmgmt = (props) => {
     }
 
     const fillMessege = async (e) => {
-        console.log(e.target.value)
         setmessege(e.target.value)
 
 
@@ -95,10 +93,9 @@ export const Chatmgmt = (props) => {
                     credentials: 'include'
                 })
             const data = res.json({}).then((result) => {
-                console.log(result)
 
                 if (res.status === 200) {
-                    console.log(result)
+                    // console.log(result)
                     setemail(result.name)
 
                     //    setUsers(result)
@@ -109,14 +106,14 @@ export const Chatmgmt = (props) => {
                 }
 
             }).catch((error) => {
-                console.log("err2")
-                console.log(error)
-                // window.alert(error)
+                // console.log("err2")
+                // console.log(error)
+                 toast.error(error)
             });
 
         }
         catch (e) {
-            console.log("err")
+            // console.log("err")
             console.log(e)
 
         }

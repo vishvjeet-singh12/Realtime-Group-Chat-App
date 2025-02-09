@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { Chatmgmt } from './chatmgmt'
 import { NotAccess } from '../NotAccess'
 import { Link, useParams } from 'react-router-dom'
+import { toast } from 'sonner'
 export const Loggedin = () => {
     const [Data, setData] = useState([])
     const [login, setlogin] = useState(0)
@@ -17,9 +18,7 @@ export const Loggedin = () => {
                     credentials: 'include'
                 })
             const data = res.json({}).then((result) => {
-                console.log(result)
                 if (res.status === 200) {
-                    console.log(result)
                     setData(result)
                     setlogin(1)
                     //    fetchData()
@@ -30,7 +29,7 @@ export const Loggedin = () => {
 
             }).catch((error) => {
                 console.log(error)
-                window.alert(error)
+                toast.error(error)
             });
 
         }

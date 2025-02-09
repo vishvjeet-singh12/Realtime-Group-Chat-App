@@ -18,12 +18,8 @@ export const Register = () => {
     const ok = (e) => {
         let name = e.target.name
         let value = e.target.value
-        console.log(name);
+       
         setUserData({ ...userData, [name]: value })
-        console.log(value);
-
-
-
     }
     
     const getuser = async (e) => {
@@ -34,7 +30,6 @@ export const Register = () => {
                     var pattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
 
                     let ismail = pattern.test(userData.email)
-                    console.log(ismail)
                     if (ismail) {
                         const { name, email, password, confirmPassword } = userData
                         const res = await fetch("/register", {
@@ -49,7 +44,7 @@ export const Register = () => {
                         })
 
                         const data = res.json({}).then((result) => {
-                            console.log(res)
+                            
 
                             if (res.status === 200) {
                                 let userInformation = result.data
@@ -62,10 +57,10 @@ export const Register = () => {
                             }
                             else {
                                 toast.error(result)
-                                console.log(result)
+                               
                             }
                         }).catch((error) => {
-                            console.log(error)
+                          
                             toast.error(error)
                         });
                     }
@@ -80,11 +75,11 @@ export const Register = () => {
                 }
             }
             else {
-                toast.erro("password and cnfpassword should be same")
+                toast.error("password and cnfpassword should be same")
             }
         }
         else {
-            toast.error("fill all fields")
+            toast.error("Fill all fields")
         }
     }
     return (

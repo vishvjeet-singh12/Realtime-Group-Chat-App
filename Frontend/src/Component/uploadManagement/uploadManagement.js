@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate } from "react-router-dom";
 import axios from 'axios'
+import { toast } from 'sonner';
 
 import { UploadMgmt } from './UploadMgmt';
 import { NotAccess } from '../NotAccess';
@@ -17,10 +18,8 @@ export const UploadManagement = () => {
                     credentials: 'include'
                 })
             const data = res.json({}).then((result) => {
-                console.log(result)
 
                 if (res.status === 200) {
-                    console.log(result)
 
 
                     //    setUsers(result)
@@ -31,14 +30,11 @@ export const UploadManagement = () => {
                 }
 
             }).catch((error) => {
-                console.log("err2")
-                console.log(error)
-                // window.alert(error)
+               toast.error(error)
             });
 
         }
         catch (e) {
-            console.log("err")
             console.log(e)
 
         }

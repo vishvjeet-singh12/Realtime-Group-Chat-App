@@ -19,20 +19,17 @@ export const UploadMgmt = () => {
         form.append("file", imgfile)
         form.append("des", description.des)
         form.append("share_by", email)
-        console.log(imgfile)
         setfile(form)
     }
     const insertdes = (e) => {
         let descript = e.target.value
-        console.log(descript)
         setDes({ ...description, ["des"]: descript })
     }
     const uploadDoc = async (e) => {
 
         try {
             e.preventDefault();
-            console.log(file.get("file"))
-            console.log(file.get("des"))
+         
             await axios.post("http://localhost:7000/upload", file).then((res) => {
                 window.alert("File Uplode successfull")
                 navigate(`/manageDocument/`)

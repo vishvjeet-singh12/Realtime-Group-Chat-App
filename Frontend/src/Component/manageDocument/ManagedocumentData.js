@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate, Link, useParams } from "react-router-dom";
 import './Managedocument.css'
 import { Topnav } from '../topNav/Topnav'
+import { toast } from 'sonner';
 export const ManagedocumentData = (props) => {
   const navigate = useNavigate()
   const { email } = useParams()
@@ -13,11 +14,10 @@ export const ManagedocumentData = (props) => {
   const [DeletedId, setDeletedId] = useState("")
   const deleteuserData = async (e) => {
     document.getElementById('hideDeletePopup').style.display = "block"
-    console.log(e.target.name)
     document.getElementById('deleteDoc').setAttribute("name", e.target.name)
     document.getElementById('hideDeletePopup').addEventListener('click', async (e) => {
       try {
-        console.log(e.target)
+       
         const res = await fetch(`/deleteDoc`,
           {
             method: 'delete',
@@ -34,7 +34,7 @@ export const ManagedocumentData = (props) => {
 
 
         const data = res.json({}).then((result) => {
-          console.log(result.messege)
+         
 
           if (res.status === 200) {
             document.getElementById('hideDeletePopup').style.display = "none"
@@ -50,8 +50,8 @@ export const ManagedocumentData = (props) => {
             // window.alert(result.messege)
           }
         }).catch((error) => {
-          console.log(error)
-          // window.alert(error)
+         
+          toast.error(error)
         });
       }
       catch (e) {
@@ -72,9 +72,7 @@ export const ManagedocumentData = (props) => {
   }
   const newDes = async (e) => {
 
-    console.log(Previous.oldDes)
-    console.log(Previous.id)
-    console.log(Description)
+    
     try {
       const res = await fetch(`/editDoc/`,
         {
@@ -92,7 +90,7 @@ export const ManagedocumentData = (props) => {
 
 
       const data = res.json({}).then((result) => {
-        console.log(result.messege)
+        
 
         if (res.status === 200) {
           document.getElementById("Show-hide-popup").style.display = "none"
@@ -105,11 +103,10 @@ export const ManagedocumentData = (props) => {
           //   history.push('/DATA/'+ userInformation.username)              
         }
         else {
-          window.alert(result.messege)
+          toast.error(result.messege)
         }
       }).catch((error) => {
-        console.log(error)
-        window.alert(error)
+        toast.error(error)
       });
     }
     catch (e) {
@@ -120,7 +117,7 @@ export const ManagedocumentData = (props) => {
   }
   const setDes = (e) => {
     setDescription(e.target.value)
-    console.log(Previous.oldDes + " " + Description)
+   
   }
   const hideDeletePopup = (e) => {
     document.getElementById('hideDeletePopup').style.display = "none"

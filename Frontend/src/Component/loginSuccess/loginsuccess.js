@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import './loginsuccess.css'
 import { Topnav } from '../topNav/Topnav'
 import { NotAccess } from '../NotAccess'
+import { toast } from 'sonner'
 export const Loginsuccess = () => {
     const [email, setemail] = useState("")
     const [isLogin, setLogin] = useState(0)
@@ -18,10 +19,7 @@ export const Loginsuccess = () => {
                     credentials: 'include'
                 })
             const data = res.json({}).then((result) => {
-                console.log(result)
-
                 if (res.status === 200) {
-                    console.log(result)
                     setemail(result.email)
                     setLogin(1)
                     //    setUsers(result)
@@ -32,14 +30,11 @@ export const Loginsuccess = () => {
                 }
 
             }).catch((error) => {
-                console.log("err2")
-                console.log(error)
-                // window.alert(error)
+               toast.error(error)
             });
 
         }
         catch (e) {
-            console.log("err")
             console.log(e)
 
         }

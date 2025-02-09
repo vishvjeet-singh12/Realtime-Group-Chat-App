@@ -14,7 +14,6 @@ export const Logdin = (props) => {
         let name = e.target.name     // name = email   // name = password
         let value = e.target.value   // value = 12345  // values = hjhshdk
         setUser({ ...user, [name]: value })
-        console.log(user.email);
     }
     const getuser = async (e) => {
         try {
@@ -34,7 +33,6 @@ export const Logdin = (props) => {
                 })
 
             const data = res.json({}).then((result) => {
-                console.log(result.messege)
 
                 if (res.status === 200) {
                     let userInformation = result.data
@@ -48,7 +46,6 @@ export const Logdin = (props) => {
                     toast.error(result.messege)
                 }
             }).catch((error) => { 
-                console.log(error)
               toast.error(error)
             });
         }

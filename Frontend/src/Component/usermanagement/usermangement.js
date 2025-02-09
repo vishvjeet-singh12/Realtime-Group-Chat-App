@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useHistory } from 'react'
 import { Usermanagement_login } from './Usermanagement_login'
 import { NotAccess } from '../NotAccess'
+import { toast } from 'sonner'
 // import {NavLink,Route,Switch} from "react-router-dom";
 import './usermanagement.css'
 
@@ -21,7 +22,7 @@ export const Usermangement = () => {
         })
 
       const data = res.json({}).then((result) => {
-        console.log(result)
+        
 
         if (res.status === 200) {
 
@@ -34,8 +35,8 @@ export const Usermangement = () => {
         }
 
       }).catch((error) => {
-        console.log(error)
-        window.alert(error)
+        
+        toast.error(error)
       });
 
     }

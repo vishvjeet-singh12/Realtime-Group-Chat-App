@@ -3,13 +3,12 @@ import { useNavigate, useParams } from "react-router-dom";
 import "./usermanagement.css"
 import { Topnav } from '../topNav/Topnav';
 import "bootstrap/dist/css/bootstrap.min.css"
-
+import { toast } from 'sonner';
 export const Usermanagement_login = (props) => {
   const navigate = useNavigate()
   const { email } = useParams()
 
   const hideValue = (e) => {
-    console.log(document.getElementById('hide').style.display = "none")
   }
   function deleteUser() {
     console.log("delete")
@@ -36,7 +35,6 @@ export const Usermanagement_login = (props) => {
 
 
         const data = res.json({}).then((result) => {
-          console.log(result.messege)
 
           if (res.status === 200) {
             window.alert("User delete successfully")
@@ -52,8 +50,7 @@ export const Usermanagement_login = (props) => {
             window.alert(result.messege)
           }
         }).catch((error) => {
-          console.log(error)
-          window.alert(error)
+          toast.error(error)
         });
       }
       catch (e) {

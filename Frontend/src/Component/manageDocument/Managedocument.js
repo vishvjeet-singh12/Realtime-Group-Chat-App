@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { NotAccess } from '../NotAccess'
 import { ManagedocumentData } from './ManagedocumentData'
+import { toast } from 'sonner'
 export const Managedocument = () => {
     const [users, setUsers] = useState([])
     const [islogin, setlogin] = useState(0)
@@ -17,8 +18,6 @@ export const Managedocument = () => {
                 })
 
             const data = res.json({}).then((result) => {
-                console.log(result)
-
                 if (res.status === 200) {
 
 
@@ -30,8 +29,7 @@ export const Managedocument = () => {
                 }
 
             }).catch((error) => {
-                console.log(error)
-                window.alert(error)
+                toast.error(error)
             });
 
         }

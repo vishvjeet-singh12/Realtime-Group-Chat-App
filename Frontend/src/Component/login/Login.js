@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
 import { Loginsuccess } from '../loginSuccess/loginsuccess';
 import { Logdin } from './Logdin';
+import { toast } from 'sonner';
 import "./Login.css"
 // import { Loggedin } from './Loggedin';
 export const Login = () => {
@@ -19,10 +20,8 @@ export const Login = () => {
                     credentials: 'include'
                 })
             const data = res.json({}).then((result) => {
-                console.log(result)
 
                 if (res.status === 200) {
-                    console.log(result)
                     setemail(result.email)
                     setLogin(1)
                     //    setUsers(result)
@@ -33,14 +32,11 @@ export const Login = () => {
                 }
 
             }).catch((error) => {
-                console.log("err2")
-                console.log(error)
-                // window.alert(error)
+               toast.error(error)
             });
 
         }
         catch (e) {
-            console.log("err")
             console.log(e)
 
         }

@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { useNavigate, useParams } from "react-router-dom";
 import { Topnav } from '../topNav/Topnav';
-
+import { toast } from 'sonner';
 export const EditUser = () => {
     const navigate = useNavigate();
     const { Editemail, name, email } = useParams()
@@ -16,13 +16,11 @@ export const EditUser = () => {
         let name = e.target.name     // name = email   // name = password
         let value = e.target.value   // value = 12345  // values = hjhshdk
         setUser({ ...user, [name]: value })
-        console.log(user.email);
     }
     const getuser = async (e) => {
         try {
             e.preventDefault();
             const { emailData, name } = user
-            console.log(emailData)
             const res = await fetch(`/edit`,
                 {
                     method: 'Put',
@@ -37,7 +35,7 @@ export const EditUser = () => {
                 })
 
             const data = res.json({}).then((result) => {
-                console.log(result)
+            
 
                 if (res.status === 200) {
                     window.alert("userEdit")
@@ -51,8 +49,7 @@ export const EditUser = () => {
                     window.alert(result.messege)
                 }
             }).catch((error) => {
-                console.log(error)
-                window.alert(error)
+                 toast.error(error)
             });
 
         }

@@ -16,7 +16,7 @@ export const Topnav = (props) => {
       })
 
     const data = res.json({}).then((result) => {
-      console.log(result.messege)
+     
 
       if (res.status === 200) {
         toast.success("Successfully Logout")
@@ -27,7 +27,6 @@ export const Topnav = (props) => {
         toast.error(result.message || "Logout failed!");
       }
     }).catch((error) => {
-      console.log(error)
       toast.error("An error occurred while logging out!");
     });
   }

@@ -4,7 +4,7 @@ import './welcome.css'
 
 export const Welcome = () => {
     const { id } = useParams()
-    console.log(id)
+
     return (
         <div
         style={{
